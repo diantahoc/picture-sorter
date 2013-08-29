@@ -23,11 +23,16 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Button1 = New System.Windows.Forms.Button
         Me.Button2 = New System.Windows.Forms.Button
         Me.Button3 = New System.Windows.Forms.Button
         Me.Button4 = New System.Windows.Forms.Button
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox
+        Me.Button14 = New System.Windows.Forms.Button
+        Me.Button12 = New System.Windows.Forms.Button
+        Me.Button13 = New System.Windows.Forms.Button
         Me.Button10 = New System.Windows.Forms.Button
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip
@@ -50,6 +55,7 @@ Partial Class Form1
         Me.CheckBox1 = New System.Windows.Forms.CheckBox
         Me.Button11 = New System.Windows.Forms.Button
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.CheckBox3 = New System.Windows.Forms.CheckBox
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -59,25 +65,25 @@ Partial Class Form1
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(13, 13)
+        Me.Button1.Location = New System.Drawing.Point(13, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(123, 23)
+        Me.Button1.Size = New System.Drawing.Size(123, 34)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Refresh Categories"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(142, 13)
+        Me.Button2.Location = New System.Drawing.Point(142, 2)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.Size = New System.Drawing.Size(75, 34)
         Me.Button2.TabIndex = 1
         Me.Button2.Text = "Refresh File List"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(755, 78)
+        Me.Button3.Location = New System.Drawing.Point(791, 94)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(59, 23)
         Me.Button3.TabIndex = 2
@@ -86,7 +92,7 @@ Partial Class Form1
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(820, 78)
+        Me.Button4.Location = New System.Drawing.Point(856, 94)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(62, 23)
         Me.Button4.TabIndex = 3
@@ -95,6 +101,11 @@ Partial Class Form1
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.CheckBox3)
+        Me.GroupBox1.Controls.Add(Me.CheckBox2)
+        Me.GroupBox1.Controls.Add(Me.Button14)
+        Me.GroupBox1.Controls.Add(Me.Button12)
+        Me.GroupBox1.Controls.Add(Me.Button13)
         Me.GroupBox1.Controls.Add(Me.Button10)
         Me.GroupBox1.Controls.Add(Me.Panel1)
         Me.GroupBox1.Controls.Add(Me.Button8)
@@ -106,14 +117,53 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.Button4)
         Me.GroupBox1.Location = New System.Drawing.Point(13, 588)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(897, 147)
+        Me.GroupBox1.Size = New System.Drawing.Size(924, 163)
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Actions"
         '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Checked = Global.Picture_Sorter.My.MySettings.Default.bbc
+        Me.CheckBox2.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.Picture_Sorter.My.MySettings.Default, "bbc", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.CheckBox2.Location = New System.Drawing.Point(762, 72)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(159, 17)
+        Me.CheckBox2.TabIndex = 15
+        Me.CheckBox2.Text = "Backup before converting"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
+        'Button14
+        '
+        Me.Button14.Location = New System.Drawing.Point(762, 42)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(75, 23)
+        Me.Button14.TabIndex = 14
+        Me.Button14.Text = "To JPG"
+        Me.Button14.UseVisualStyleBackColor = True
+        '
+        'Button12
+        '
+        Me.Button12.Location = New System.Drawing.Point(756, 13)
+        Me.Button12.Name = "Button12"
+        Me.Button12.Size = New System.Drawing.Size(48, 23)
+        Me.Button12.TabIndex = 13
+        Me.Button12.Text = "Undo"
+        Me.Button12.UseVisualStyleBackColor = True
+        '
+        'Button13
+        '
+        Me.Button13.Location = New System.Drawing.Point(843, 42)
+        Me.Button13.Name = "Button13"
+        Me.Button13.Size = New System.Drawing.Size(75, 23)
+        Me.Button13.TabIndex = 14
+        Me.Button13.Text = "To PNG"
+        Me.Button13.UseVisualStyleBackColor = True
+        '
         'Button10
         '
-        Me.Button10.Location = New System.Drawing.Point(774, 22)
+        Me.Button10.Location = New System.Drawing.Point(810, 13)
         Me.Button10.Name = "Button10"
         Me.Button10.Size = New System.Drawing.Size(108, 23)
         Me.Button10.TabIndex = 12
@@ -141,7 +191,7 @@ Partial Class Form1
         '
         'Button8
         '
-        Me.Button8.Location = New System.Drawing.Point(785, 118)
+        Me.Button8.Location = New System.Drawing.Point(821, 134)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(97, 23)
         Me.Button8.TabIndex = 9
@@ -190,23 +240,24 @@ Partial Class Form1
         Me.GroupBox2.Controls.Add(Me.H_FILE_NAME_LABEL)
         Me.GroupBox2.Location = New System.Drawing.Point(203, 42)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(707, 540)
+        Me.GroupBox2.Size = New System.Drawing.Size(734, 540)
         Me.GroupBox2.TabIndex = 5
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "File"
         '
         'ProgressBar1
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(592, 515)
+        Me.ProgressBar1.Location = New System.Drawing.Point(620, 518)
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(100, 10)
         Me.ProgressBar1.TabIndex = 2
+        Me.ProgressBar1.Visible = False
         '
         'H_IMAGE
         '
-        Me.H_IMAGE.Location = New System.Drawing.Point(10, 20)
+        Me.H_IMAGE.Location = New System.Drawing.Point(16, 20)
         Me.H_IMAGE.Name = "H_IMAGE"
-        Me.H_IMAGE.Size = New System.Drawing.Size(682, 492)
+        Me.H_IMAGE.Size = New System.Drawing.Size(712, 492)
         Me.H_IMAGE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.H_IMAGE.TabIndex = 1
         Me.H_IMAGE.TabStop = False
@@ -237,7 +288,7 @@ Partial Class Form1
         Me.GroupBox3.Controls.Add(Me.TextBox1)
         Me.GroupBox3.Location = New System.Drawing.Point(224, 2)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(686, 41)
+        Me.GroupBox3.Size = New System.Drawing.Size(713, 41)
         Me.GroupBox3.TabIndex = 7
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Base path"
@@ -304,11 +355,24 @@ Partial Class Form1
         Me.Button11.Text = "."
         Me.Button11.UseVisualStyleBackColor = True
         '
+        'CheckBox3
+        '
+        Me.CheckBox3.AutoSize = True
+        Me.CheckBox3.Checked = Global.Picture_Sorter.My.MySettings.Default.strb
+        Me.CheckBox3.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox3.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.Picture_Sorter.My.MySettings.Default, "strb", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.CheckBox3.Location = New System.Drawing.Point(692, 138)
+        Me.CheckBox3.Name = "CheckBox3"
+        Me.CheckBox3.Size = New System.Drawing.Size(123, 17)
+        Me.CheckBox3.TabIndex = 16
+        Me.CheckBox3.Text = "Send to recycle bin"
+        Me.CheckBox3.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(922, 747)
+        Me.ClientSize = New System.Drawing.Size(949, 763)
         Me.Controls.Add(Me.Button11)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.H_FILE_CONUT)
@@ -320,6 +384,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Button1)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -364,5 +429,10 @@ Partial Class Form1
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
     Friend WithEvents Button11 As System.Windows.Forms.Button
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents Button12 As System.Windows.Forms.Button
+    Friend WithEvents Button14 As System.Windows.Forms.Button
+    Friend WithEvents Button13 As System.Windows.Forms.Button
+    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox3 As System.Windows.Forms.CheckBox
 
 End Class

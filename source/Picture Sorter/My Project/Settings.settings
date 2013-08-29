@@ -8,5 +8,11 @@
     <Setting Name="FT" Type="System.String" Scope="User">
       <Value Profile="(Default)">.jpg,.png,.bmp,.gif</Value>
     </Setting>
+    <Setting Name="bbc" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="strb" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -8,6 +8,14 @@ Public Class Form1
     Dim CurrentINDEXPOSITION As Integer = 0
     Dim memStream As IO.MemoryStream
 
+    Dim lastAction As String = ""
+
+    Sub New()
+        ' This call is required by the Windows Form Designer.
+        InitializeComponent()
+        ' Add any initialization after the InitializeComponent() call.
+    End Sub
+
     Sub LoadCategories()
         Categories.Clear()
         ToolStrip1.Items.Clear()
@@ -97,12 +105,23 @@ Public Class Form1
 
     Sub MoveFile(ByVal filepath As String, ByVal catPath As String)
         FileSystem.MoveFile(filepath, catPath & "\" & FileSystem.GetFileInfo(filepath).Name, False)
+        lastAction = "FILEMOVE?" & filepath & "?" & catPath & "\" & FileSystem.GetFileInfo(filepath).Name
         LoadFilesIntoFinder()
-        H_FILE_LIST.SelectedIndex = CurrentINDEXPOSITION
+        Try
+            H_FILE_LIST.SelectedIndex = CurrentINDEXPOSITION
+        Catch ex As Exception
+            H_IMAGE.Image = Nothing
+        End Try
     End Sub
 
     Sub DeleteFile(ByVal filepath As String)
-        FileIO.FileSystem.DeleteFile(filepath, UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin)
+        Dim opt As FileIO.RecycleOption
+        If CheckBox3.Checked Then
+            opt = RecycleOption.SendToRecycleBin
+        Else
+            opt = RecycleOption.DeletePermanently
+        End If
+        FileIO.FileSystem.DeleteFile(filepath, UIOption.OnlyErrorDialogs, opt)
         LoadFilesIntoFinder()
         H_FILE_LIST.SelectedIndex = CurrentINDEXPOSITION
     End Sub
@@ -122,6 +141,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
+        If H_CAT_COMBO.SelectedIndex = -1 Then Return
         MoveFile(H_FILE_LIST.Items.Item(H_FILE_LIST.SelectedIndex), GetCategorieFullpath(H_CAT_COMBO.Items.Item(H_CAT_COMBO.SelectedIndex)))
     End Sub
 
@@ -149,6 +169,7 @@ Public Class Form1
         My.Settings.Save()
         TextBox1.Text = path
         BasePath = path
+        CheckDirs()
         LoadCategories()
         LoadFilesIntoFinder()
         CurrentINDEXPOSITION = 0
@@ -222,5 +243,106 @@ Public Class Form1
 
     Private Sub Button11_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button11.Click
         Me.Focus()
+    End Sub
+
+    Public Sub TagClicked(ByVal tag As String)
+
+    End Sub
+
+    Private Sub Button12_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button12.Click
+        Dim data As String() = lastAction.Split(CChar("?"))
+        Select Case data(0)
+            Case "FILEMOVE"
+                File.Move(data(2), data(1))
+                LoadFilesIntoFinder()
+                lastAction = ""
+            Case Else
+                lastAction = ""
+        End Select
+    End Sub
+
+    Private Sub Form1_MouseMove(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles MyBase.MouseMove
+        Button12.Enabled = Not (lastAction = "")
+    End Sub
+
+    Private Sub Button14_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button14.Click
+        'Dim w As Image = Image.FromStream(memStream)
+        'Dim p As IO.FileInfo = FileSystem.GetFileInfo(H_FILE_LIST.Items.Item(H_FILE_LIST.SelectedIndex))
+        'Dim newp As String = p.FullName.Replace(p.Extension, ".jpg")
+        'w.Save(newp, Imaging.ImageFormat.Jpeg)
+        'LoadImageWithoutLock(newp)
+        'FileSystem.DeleteFile(p.FullName, UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin)
+        'w.Dispose()
+        'LoadFilesIntoFinder()
+        ConvertImage(Drawing.Imaging.ImageFormat.Jpeg, "jpg")
+        LoadFilesIntoFinder()
+        LoadImageWithoutLock(GetFilePathByIndex(CurrentINDEXPOSITION))
+    End Sub
+
+    Private Sub Button13_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button13.Click
+        ConvertImage(Drawing.Imaging.ImageFormat.Png, "png")
+        LoadFilesIntoFinder()
+        LoadImageWithoutLock(GetFilePathByIndex(CurrentINDEXPOSITION))
+    End Sub
+
+    Private Sub ConvertImage(ByVal t As Drawing.Imaging.ImageFormat, ByVal ext As String)
+        'Get file info
+
+        Dim fIndo As IO.FileInfo = FileIO.FileSystem.GetFileInfo(GetSelectFilePath)
+        If fIndo.Extension = "." & ext Then
+            MsgBox("The file is already " & ext)
+            Return
+        End If
+
+
+
+        'Backup check
+        If CheckBox2.Checked Then
+            'Rename the old file
+            FileSystem.RenameFile(fIndo.FullName, fIndo.Name.Split(CChar("."))(0) & ".bak")
+        End If
+
+        'Open a new file stream using the old file path
+        Dim fs As New IO.FileStream(fIndo.FullName, FileMode.OpenOrCreate)
+
+        'Make a temporary image
+        Dim w As Image = Image.FromStream(memStream)
+        Dim tempImage As Image = w.Clone
+        'Release the old file
+        w.Dispose()
+
+
+        'Save the tempImage in required format
+
+        tempImage.Save(fs, t)
+        tempImage.Dispose()
+
+        'Close the file
+        fs.Close()
+
+
+        'Finally correct the new file extension
+
+        FileSystem.RenameFile(fIndo.FullName, fIndo.Name.Split(CChar("."))(0) & "." & ext)
+    End Sub
+
+    Private Function GetSelectFilePath() As String
+        Return CStr(H_FILE_LIST.Items.Item(H_FILE_LIST.SelectedIndex))
+    End Function
+
+    Private Function GetFilePathByIndex(ByRef index As Int32) As String
+        Return CStr(H_FILE_LIST.Items.Item(index))
+    End Function
+
+    Private Sub CheckDirs()
+        If Not FileIO.FileSystem.DirectoryExists(BasePath) Then
+            FileIO.FileSystem.CreateDirectory(BasePath)
+        End If
+    End Sub
+
+    Private Sub CheckBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox2.Click
+        If CheckBox2.Checked Then
+            MsgBox("A .bak file will be made")
+        End If
     End Sub
 End Class
