@@ -59,7 +59,7 @@ namespace Picture_Sorter
 
         public string GetCategorieFullpath(string CatName)
         {
-            return BasePath + "\\" + CatName;
+            return Path.Combine(BasePath, CatName);
         }
 
         public void LoadFilesIntoFinder()
@@ -145,8 +145,9 @@ namespace Picture_Sorter
 
         public void MoveFile(string filepath, string catPath)
         {
-            FileSystem.MoveFile(filepath, catPath + "\\" + FileSystem.GetFileInfo(filepath).Name, false);
-            lastAction = "FILEMOVE?" + filepath + "?" + catPath + "\\" + FileSystem.GetFileInfo(filepath).Name;
+            string newPath = Path.Combine(catPath , FileSystem.GetFileInfo(filepath).Name);
+            FileSystem.MoveFile(filepath, newPath, false);
+            lastAction = "FILEMOVE?" + filepath + "?" + newPath;
             LoadFilesIntoFinder();
             try
             {
@@ -309,9 +310,24 @@ namespace Picture_Sorter
 
         private void Button6_Click(object sender, EventArgs e)
         {
-            FileSystem.CreateDirectory(BasePath + "\\" + H_CAT_NAME_TEXTBOX.Text);
-            H_CAT_NAME_TEXTBOX.Text = "";
-            LoadCategories();
+            if (H_CAT_NAME_TEXTBOX.Text.Length > 0)
+            {
+                string path = Path.Combine(BasePath, H_CAT_NAME_TEXTBOX.Text);
+                if (FileSystem.DirectoryExists(path))
+                {
+                    MessageBox.Show("Category already exist");
+                }
+                else
+                {
+                    FileSystem.CreateDirectory(path);
+                    H_CAT_NAME_TEXTBOX.Text = "";
+                    LoadCategories();
+                }
+            }
+            else 
+            {
+                MessageBox.Show("Enter category name");
+            }
         }
 
         private void ToolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -403,7 +419,7 @@ namespace Picture_Sorter
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            BasePath = Properties.Settings .Default .bs;
+            BasePath = Properties.Settings.Default.bs;
             if (BasePath == "not set")
             {
                 MessageBox.Show("Select a folder to begin sorting");
@@ -415,12 +431,10 @@ namespace Picture_Sorter
             }
             ToolTip1.SetToolTip(CheckBox1, "Enable image moving by clicking on the image to the selected category");
         }
-
         private void button15_Click(object sender, EventArgs e)
         {
             ColorSorter i = new ColorSorter();
             i.Show();
         }
-
     }
 }

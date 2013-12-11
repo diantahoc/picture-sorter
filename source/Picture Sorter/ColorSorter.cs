@@ -125,7 +125,7 @@ namespace Picture_Sorter
                     pictureBox1.Image = null;
                 }
 
-                FileSystem.MoveFile(x.FullName, textBox1.Text + "\\" + s + "\\" + x.Name);
+                FileSystem.MoveFile(x.FullName, Path.Combine(Path.Combine(textBox1.Text, s), x.Name));
                 af = DateTime.Now;
 
                 TimeSpan ss = (af - be);

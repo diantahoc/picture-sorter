@@ -33,6 +33,7 @@
             this.H_IMAGE = new System.Windows.Forms.PictureBox();
             this.Button9 = new System.Windows.Forms.Button();
             this.GroupBox3 = new System.Windows.Forms.GroupBox();
+            this.H_FT_INPUT = new System.Windows.Forms.TextBox();
             this.Button7 = new System.Windows.Forms.Button();
             this.TextBox1 = new System.Windows.Forms.TextBox();
             this.H_FILE_NAME_LABEL = new System.Windows.Forms.Label();
@@ -52,6 +53,9 @@
             this.Button3 = new System.Windows.Forms.Button();
             this.Button4 = new System.Windows.Forms.Button();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
+            this.button15 = new System.Windows.Forms.Button();
+            this.CheckBox3 = new System.Windows.Forms.CheckBox();
+            this.CheckBox2 = new System.Windows.Forms.CheckBox();
             this.H_CAT_NAME_TEXTBOX = new System.Windows.Forms.TextBox();
             this.Button6 = new System.Windows.Forms.Button();
             this.H_CAT_COMBO = new System.Windows.Forms.ComboBox();
@@ -59,10 +63,6 @@
             this.Button2 = new System.Windows.Forms.Button();
             this.Button1 = new System.Windows.Forms.Button();
             this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.H_FT_INPUT = new System.Windows.Forms.TextBox();
-            this.CheckBox3 = new System.Windows.Forms.CheckBox();
-            this.CheckBox2 = new System.Windows.Forms.CheckBox();
-            this.button15 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.H_IMAGE)).BeginInit();
             this.GroupBox3.SuspendLayout();
             this.Panel1.SuspendLayout();
@@ -106,6 +106,15 @@
             this.GroupBox3.TabIndex = 16;
             this.GroupBox3.TabStop = false;
             this.GroupBox3.Text = "Base path";
+            // 
+            // H_FT_INPUT
+            // 
+            this.H_FT_INPUT.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Picture_Sorter.Properties.Settings.Default, "ft", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.H_FT_INPUT.Location = new System.Drawing.Point(565, 14);
+            this.H_FT_INPUT.Name = "H_FT_INPUT";
+            this.H_FT_INPUT.Size = new System.Drawing.Size(142, 22);
+            this.H_FT_INPUT.TabIndex = 3;
+            this.H_FT_INPUT.Text = global::Picture_Sorter.Properties.Settings.Default.ft;
             // 
             // Button7
             // 
@@ -215,19 +224,22 @@
             // Panel1
             // 
             this.Panel1.Controls.Add(this.ToolStrip1);
-            this.Panel1.Location = new System.Drawing.Point(311, 23);
+            this.Panel1.Location = new System.Drawing.Point(283, 14);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(402, 119);
+            this.Panel1.Size = new System.Drawing.Size(444, 155);
             this.Panel1.TabIndex = 11;
             // 
             // ToolStrip1
             // 
+            this.ToolStrip1.AllowItemReorder = true;
             this.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ToolStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.ToolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.ToolStrip1.Location = new System.Drawing.Point(0, 0);
             this.ToolStrip1.Name = "ToolStrip1";
-            this.ToolStrip1.Size = new System.Drawing.Size(402, 119);
+            this.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.ToolStrip1.Size = new System.Drawing.Size(444, 155);
             this.ToolStrip1.TabIndex = 10;
             this.ToolStrip1.Text = "ToolStrip1";
             this.ToolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ToolStrip1_ItemClicked);
@@ -283,6 +295,7 @@
             // 
             // GroupBox1
             // 
+            this.GroupBox1.Controls.Add(this.Button8);
             this.GroupBox1.Controls.Add(this.button15);
             this.GroupBox1.Controls.Add(this.CheckBox3);
             this.GroupBox1.Controls.Add(this.CheckBox2);
@@ -291,7 +304,6 @@
             this.GroupBox1.Controls.Add(this.Button13);
             this.GroupBox1.Controls.Add(this.Button10);
             this.GroupBox1.Controls.Add(this.Panel1);
-            this.GroupBox1.Controls.Add(this.Button8);
             this.GroupBox1.Controls.Add(this.H_CAT_NAME_TEXTBOX);
             this.GroupBox1.Controls.Add(this.Button6);
             this.GroupBox1.Controls.Add(this.H_CAT_COMBO);
@@ -304,6 +316,42 @@
             this.GroupBox1.TabIndex = 11;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Actions";
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(21, 146);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(155, 23);
+            this.button15.TabIndex = 17;
+            this.button15.Text = "Sort images by color...";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // CheckBox3
+            // 
+            this.CheckBox3.AutoSize = true;
+            this.CheckBox3.Checked = global::Picture_Sorter.Properties.Settings.Default.sendTobin;
+            this.CheckBox3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CheckBox3.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Picture_Sorter.Properties.Settings.Default, "sendTobin", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.CheckBox3.Location = new System.Drawing.Point(733, 132);
+            this.CheckBox3.Name = "CheckBox3";
+            this.CheckBox3.Size = new System.Drawing.Size(128, 18);
+            this.CheckBox3.TabIndex = 16;
+            this.CheckBox3.Text = "Send to recycle bin";
+            this.CheckBox3.UseVisualStyleBackColor = true;
+            // 
+            // CheckBox2
+            // 
+            this.CheckBox2.AutoSize = true;
+            this.CheckBox2.Checked = global::Picture_Sorter.Properties.Settings.Default.backupBeforeConvert;
+            this.CheckBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Picture_Sorter.Properties.Settings.Default, "backupBeforeConvert", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.CheckBox2.Location = new System.Drawing.Point(756, 77);
+            this.CheckBox2.Name = "CheckBox2";
+            this.CheckBox2.Size = new System.Drawing.Size(162, 18);
+            this.CheckBox2.TabIndex = 15;
+            this.CheckBox2.Text = "Backup before converting";
+            this.CheckBox2.UseVisualStyleBackColor = true;
+            this.CheckBox2.Click += new System.EventHandler(this.CheckBox2_Click);
             // 
             // H_CAT_NAME_TEXTBOX
             // 
@@ -361,51 +409,6 @@
             this.Button1.Text = "Refresh Categories";
             this.Button1.UseVisualStyleBackColor = true;
             this.Button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // H_FT_INPUT
-            // 
-            this.H_FT_INPUT.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Picture_Sorter.Properties.Settings.Default, "ft", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.H_FT_INPUT.Location = new System.Drawing.Point(565, 14);
-            this.H_FT_INPUT.Name = "H_FT_INPUT";
-            this.H_FT_INPUT.Size = new System.Drawing.Size(142, 22);
-            this.H_FT_INPUT.TabIndex = 3;
-            this.H_FT_INPUT.Text = global::Picture_Sorter.Properties.Settings.Default.ft;
-            // 
-            // CheckBox3
-            // 
-            this.CheckBox3.AutoSize = true;
-            this.CheckBox3.Checked = global::Picture_Sorter.Properties.Settings.Default.sendTobin;
-            this.CheckBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CheckBox3.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Picture_Sorter.Properties.Settings.Default, "sendTobin", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.CheckBox3.Location = new System.Drawing.Point(692, 148);
-            this.CheckBox3.Name = "CheckBox3";
-            this.CheckBox3.Size = new System.Drawing.Size(128, 18);
-            this.CheckBox3.TabIndex = 16;
-            this.CheckBox3.Text = "Send to recycle bin";
-            this.CheckBox3.UseVisualStyleBackColor = true;
-            // 
-            // CheckBox2
-            // 
-            this.CheckBox2.AutoSize = true;
-            this.CheckBox2.Checked = global::Picture_Sorter.Properties.Settings.Default.backupBeforeConvert;
-            this.CheckBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Picture_Sorter.Properties.Settings.Default, "backupBeforeConvert", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.CheckBox2.Location = new System.Drawing.Point(756, 77);
-            this.CheckBox2.Name = "CheckBox2";
-            this.CheckBox2.Size = new System.Drawing.Size(162, 18);
-            this.CheckBox2.TabIndex = 15;
-            this.CheckBox2.Text = "Backup before converting";
-            this.CheckBox2.UseVisualStyleBackColor = true;
-            this.CheckBox2.Click += new System.EventHandler(this.CheckBox2_Click);
-            // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(21, 146);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(155, 23);
-            this.button15.TabIndex = 17;
-            this.button15.Text = "Sort images by color...";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // Form1
             // 
