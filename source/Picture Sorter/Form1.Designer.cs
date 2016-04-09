@@ -254,6 +254,7 @@
             this.Panel1.Name = "Panel1";
             this.Panel1.Size = new System.Drawing.Size(477, 84);
             this.Panel1.TabIndex = 11;
+            this.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
             // ToolStrip1
             // 
@@ -402,6 +403,7 @@
             this.H_CAT_NAME_TEXTBOX.Name = "H_CAT_NAME_TEXTBOX";
             this.H_CAT_NAME_TEXTBOX.Size = new System.Drawing.Size(123, 22);
             this.H_CAT_NAME_TEXTBOX.TabIndex = 8;
+            this.H_CAT_NAME_TEXTBOX.TextChanged += new System.EventHandler(this.H_CAT_NAME_TEXTBOX_TextChanged);
             // 
             // Button6
             // 
