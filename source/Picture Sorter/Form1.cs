@@ -20,10 +20,12 @@ namespace Picture_Sorter
         string BasePath = "not set";
         MemoryStream memStream;
         int CurrentIndex;
+        
 
         public Form1()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
 
@@ -333,6 +335,10 @@ namespace Picture_Sorter
         private void ToolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             MoveFile((string)H_FILE_LIST.Items[H_FILE_LIST.SelectedIndex], GetCategorieFullpath(e.ClickedItem.Text));
+        }
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            MessageBox.Show(e.KeyChar.ToString());
         }
 
         private void H_IMAGE_Click(object sender, EventArgs e)
