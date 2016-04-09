@@ -24,20 +24,32 @@ namespace Picture_Sorter
 
         public Form1()
         {
-            InitializeComponent();
             this.KeyPreview = true;
+            InitializeComponent();   
+                
         }
 
+        private void Form1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {   
+            int keyPressed = Convert.ToInt16(e.KeyCode.ToString().Substring(e.KeyCode.ToString().Length - 1));
+            // Determine whether the keystroke is a number from the keypad.
+            if ( ( (e.KeyCode > Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) || (e.KeyCode > Keys.D0 && e.KeyCode <= Keys.D9) ) && keyPressed <= Categories.Count() )
+            {
+                //var test = MessageBox.Show(keyPressed.ToString() + "\n" + Convert.ToString(Categories[keyPressed - 1]).Split(Convert.ToChar(";")).ElementAt(1));    //
+                MoveFile( (string)H_FILE_LIST.Items[H_FILE_LIST.SelectedIndex],Convert.ToString(Categories[keyPressed-1].Split(Convert.ToChar(";")).ElementAt(1)));
+            }
+        }
 
         public void LoadCategories()
         {
             Categories.Clear();
             ToolStrip1.Items.Clear();
+            int i = 0;
             foreach (DirectoryInfo x in FileSystem.GetDirectoryInfo(BasePath).GetDirectories())
             {
                 //NAME;FULL_PATH
                 Categories.Add(x.Name + ";" + x.FullName);
-                ToolStrip1.Items.Add(new_ite(x.Name, x.FullName));
+                ToolStrip1.Items.Add(new_ite(Convert.ToString(++i) +". " + x.Name, x.FullName));
                 //ToolStripLabel1
             }
             AppendCategoiesIntoComboBox();
@@ -57,6 +69,7 @@ namespace Picture_Sorter
             {
                 H_CAT_COMBO.Items.Add(Convert.ToString(x.Split(Convert.ToChar(";")).ElementAt(0)));
             }
+           
         }
 
         public string GetCategorieFullpath(string CatName)
@@ -441,6 +454,11 @@ namespace Picture_Sorter
         {
             ColorSorter i = new ColorSorter();
             i.Show();
+        }
+
+        private void H_FILE_NAME_LABEL_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

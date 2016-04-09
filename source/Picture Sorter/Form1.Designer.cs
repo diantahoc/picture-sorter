@@ -145,20 +145,22 @@
             // 
             // H_FILE_NAME_LABEL
             // 
+            this.H_FILE_NAME_LABEL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.H_FILE_NAME_LABEL.AutoSize = true;
-            this.H_FILE_NAME_LABEL.Location = new System.Drawing.Point(6, 701);
+            this.H_FILE_NAME_LABEL.Location = new System.Drawing.Point(6, 716);
             this.H_FILE_NAME_LABEL.Name = "H_FILE_NAME_LABEL";
             this.H_FILE_NAME_LABEL.Size = new System.Drawing.Size(43, 14);
             this.H_FILE_NAME_LABEL.TabIndex = 0;
             this.H_FILE_NAME_LABEL.Text = "Label1";
+            this.H_FILE_NAME_LABEL.Click += new System.EventHandler(this.H_FILE_NAME_LABEL_Click);
             // 
             // Button14
             // 
             this.Button14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Button14.Location = new System.Drawing.Point(959, 70);
+            this.Button14.Location = new System.Drawing.Point(959, 71);
             this.Button14.Name = "Button14";
-            this.Button14.Size = new System.Drawing.Size(75, 25);
+            this.Button14.Size = new System.Drawing.Size(81, 25);
             this.Button14.TabIndex = 14;
             this.Button14.Text = "To JPG";
             this.Button14.UseVisualStyleBackColor = true;
@@ -190,9 +192,9 @@
             // 
             // Button11
             // 
-            this.Button11.Location = new System.Drawing.Point(151, 55);
+            this.Button11.Location = new System.Drawing.Point(173, 55);
             this.Button11.Name = "Button11";
-            this.Button11.Size = new System.Drawing.Size(46, 19);
+            this.Button11.Size = new System.Drawing.Size(24, 19);
             this.Button11.TabIndex = 12;
             this.Button11.Text = ".";
             this.Button11.UseVisualStyleBackColor = true;
@@ -201,7 +203,7 @@
             // CheckBox1
             // 
             this.CheckBox1.AutoSize = true;
-            this.CheckBox1.Location = new System.Drawing.Point(12, 56);
+            this.CheckBox1.Location = new System.Drawing.Point(18, 55);
             this.CheckBox1.Name = "CheckBox1";
             this.CheckBox1.Size = new System.Drawing.Size(133, 18);
             this.CheckBox1.TabIndex = 13;
@@ -222,7 +224,7 @@
             // 
             this.Button13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Button13.Location = new System.Drawing.Point(1046, 70);
+            this.Button13.Location = new System.Drawing.Point(1046, 71);
             this.Button13.Name = "Button13";
             this.Button13.Size = new System.Drawing.Size(75, 25);
             this.Button13.TabIndex = 14;
@@ -257,7 +259,7 @@
             // 
             this.ToolStrip1.AllowItemReorder = true;
             this.ToolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.ToolStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToolStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.ToolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.ToolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -270,7 +272,8 @@
             // 
             // ProgressBar1
             // 
-            this.ProgressBar1.Location = new System.Drawing.Point(1006, 704);
+            this.ProgressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ProgressBar1.Location = new System.Drawing.Point(1006, 716);
             this.ProgressBar1.Name = "ProgressBar1";
             this.ProgressBar1.Size = new System.Drawing.Size(100, 11);
             this.ProgressBar1.TabIndex = 2;
@@ -471,6 +474,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Picture Sorter";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.H_IMAGE)).EndInit();
             this.GroupBox3.ResumeLayout(false);
