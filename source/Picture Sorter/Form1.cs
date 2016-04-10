@@ -23,9 +23,22 @@ namespace Picture_Sorter
 
         public Form1()
         {
+            this.KeyPreview = true;
             InitializeComponent();
+            
         }
 
+        private void Form1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {   //              MoveFile((string)H_FILE_LIST.Items[H_FILE_LIST.SelectedIndex], GetCategorieFullpath(e.ClickedItem.Text));
+            // Determine whether the keystroke is a number from the keypad.
+            if ( (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) || (e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9) )
+            {
+
+                int keyPressed = Convert.ToInt16(e.KeyCode.ToString().Substring(e.KeyCode.ToString().Length - 1));
+                //var test = MessageBox.Show(keyPressed.ToString() + "\n" + Convert.ToString(Categories[keyPressed - 1]).Split(Convert.ToChar(";")).ElementAt(1));    //
+                MoveFile( (string)H_FILE_LIST.Items[H_FILE_LIST.SelectedIndex], Convert.ToString(Categories[keyPressed-1].Split(Convert.ToChar(";")).ElementAt(1)));
+            }
+        }
 
         public void LoadCategories()
         {
