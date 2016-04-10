@@ -33,12 +33,18 @@ namespace Picture_Sorter
         {   
             if (  !(H_CAT_NAME_TEXTBOX as Control).Focused)
             {
-                int keyPressed = Convert.ToInt16(e.KeyCode.ToString().Substring(e.KeyCode.ToString().Length - 1));
-                // Determine whether the keystroke is a number from the keypad.
-                if ( ( (e.KeyCode > Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) || (e.KeyCode > Keys.D0 && e.KeyCode <= Keys.D9) ) && keyPressed <= Categories.Count() )
+                
+                //if (char.IsNumber(Convert.ToChar(e.KeyCode.ToString().Substring(e.KeyCode.ToString().Length - 1))))
+                    
+                // Determine whether the keystroke is a number from the keypad and make sure its not out of bounds.
+                if ( (e.KeyCode > Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) || (e.KeyCode > Keys.D0 && e.KeyCode <= Keys.D9) )
                 {
-                    //var test = MessageBox.Show(keyPressed.ToString() + "\n" + Convert.ToString(Categories[keyPressed - 1]).Split(Convert.ToChar(";")).ElementAt(1));    //
-                    MoveFile( (string)H_FILE_LIST.Items[H_FILE_LIST.SelectedIndex],Convert.ToString(Categories[keyPressed-1].Split(Convert.ToChar(";")).ElementAt(1)));
+                        int keyPressed = Convert.ToInt16(e.KeyCode.ToString().Substring(e.KeyCode.ToString().Length - 1));
+                        //var test = MessageBox.Show(keyPressed.ToString() + "\n" + Convert.ToString(Categories[keyPressed - 1]).Split(Convert.ToChar(";")).ElementAt(1));    //
+                        if (keyPressed <= Categories.Count())
+                        {
+                            MoveFile((string)H_FILE_LIST.Items[H_FILE_LIST.SelectedIndex], Convert.ToString(Categories[keyPressed - 1].Split(Convert.ToChar(";")).ElementAt(1)));
+                        }
                 }
             }
         }

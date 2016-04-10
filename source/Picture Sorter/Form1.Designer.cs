@@ -77,7 +77,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.H_IMAGE.Location = new System.Drawing.Point(6, 21);
             this.H_IMAGE.Name = "H_IMAGE";
-            this.H_IMAGE.Size = new System.Drawing.Size(1100, 689);
+            this.H_IMAGE.Size = new System.Drawing.Size(1100, 698);
             this.H_IMAGE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.H_IMAGE.TabIndex = 1;
             this.H_IMAGE.TabStop = false;
@@ -147,7 +147,7 @@
             // 
             this.H_FILE_NAME_LABEL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.H_FILE_NAME_LABEL.AutoSize = true;
-            this.H_FILE_NAME_LABEL.Location = new System.Drawing.Point(6, 716);
+            this.H_FILE_NAME_LABEL.Location = new System.Drawing.Point(221, 785);
             this.H_FILE_NAME_LABEL.Name = "H_FILE_NAME_LABEL";
             this.H_FILE_NAME_LABEL.Size = new System.Drawing.Size(43, 14);
             this.H_FILE_NAME_LABEL.TabIndex = 0;
@@ -174,7 +174,7 @@
             this.H_FILE_LIST.ItemHeight = 14;
             this.H_FILE_LIST.Location = new System.Drawing.Point(12, 87);
             this.H_FILE_LIST.Name = "H_FILE_LIST";
-            this.H_FILE_LIST.Size = new System.Drawing.Size(185, 690);
+            this.H_FILE_LIST.Size = new System.Drawing.Size(185, 704);
             this.H_FILE_LIST.TabIndex = 15;
             this.H_FILE_LIST.SelectedIndexChanged += new System.EventHandler(this.H_FILE_LIST_SelectedIndexChanged);
             // 
@@ -214,7 +214,7 @@
             // 
             this.H_FILE_CONUT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.H_FILE_CONUT.AutoSize = true;
-            this.H_FILE_CONUT.Location = new System.Drawing.Point(9, 785);
+            this.H_FILE_CONUT.Location = new System.Drawing.Point(15, 785);
             this.H_FILE_CONUT.Name = "H_FILE_CONUT";
             this.H_FILE_CONUT.Size = new System.Drawing.Size(43, 14);
             this.H_FILE_CONUT.TabIndex = 10;
@@ -274,9 +274,9 @@
             // ProgressBar1
             // 
             this.ProgressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ProgressBar1.Location = new System.Drawing.Point(1006, 716);
+            this.ProgressBar1.Location = new System.Drawing.Point(1018, 719);
             this.ProgressBar1.Name = "ProgressBar1";
-            this.ProgressBar1.Size = new System.Drawing.Size(100, 11);
+            this.ProgressBar1.Size = new System.Drawing.Size(88, 14);
             this.ProgressBar1.TabIndex = 2;
             // 
             // Button8
@@ -299,7 +299,6 @@
             this.GroupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.GroupBox2.Controls.Add(this.ProgressBar1);
             this.GroupBox2.Controls.Add(this.H_IMAGE);
-            this.GroupBox2.Controls.Add(this.H_FILE_NAME_LABEL);
             this.GroupBox2.Location = new System.Drawing.Point(215, 63);
             this.GroupBox2.Name = "GroupBox2";
             this.GroupBox2.Size = new System.Drawing.Size(1112, 733);
@@ -460,15 +459,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1339, 919);
+            this.Controls.Add(this.H_FILE_CONUT);
             this.Controls.Add(this.GroupBox3);
+            this.Controls.Add(this.H_FILE_NAME_LABEL);
             this.Controls.Add(this.H_FILE_LIST);
             this.Controls.Add(this.Button11);
             this.Controls.Add(this.CheckBox1);
-            this.Controls.Add(this.H_FILE_CONUT);
             this.Controls.Add(this.GroupBox2);
-            this.Controls.Add(this.GroupBox1);
             this.Controls.Add(this.Button2);
             this.Controls.Add(this.Button1);
+            this.Controls.Add(this.GroupBox1);
             this.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -484,7 +484,6 @@
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();
             this.GroupBox2.ResumeLayout(false);
-            this.GroupBox2.PerformLayout();
             this.GroupBox1.ResumeLayout(false);
             this.GroupBox1.PerformLayout();
             this.ResumeLayout(false);
