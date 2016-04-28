@@ -20,30 +20,53 @@ namespace Picture_Sorter
         string BasePath = "not set";
         MemoryStream memStream;
         int CurrentIndex;
+        
 
         public Form1()
         {
-            InitializeComponent();
+            this.KeyPreview = true;
+            InitializeComponent();   
+                
         }
 
+        private void Form1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {   
+            if (  !(H_CAT_NAME_TEXTBOX as Control).Focused)
+            {
+                
+                //if (char.IsNumber(Convert.ToChar(e.KeyCode.ToString().Substring(e.KeyCode.ToString().Length - 1))))
+                    
+                // Determine whether the keystroke is a number from the keypad and make sure its not out of bounds.
+                if ( (e.KeyCode > Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) || (e.KeyCode > Keys.D0 && e.KeyCode <= Keys.D9) )
+                {
+                        int keyPressed = Convert.ToInt16(e.KeyCode.ToString().Substring(e.KeyCode.ToString().Length - 1));
+                        //var test = MessageBox.Show(keyPressed.ToString() + "\n" + Convert.ToString(Categories[keyPressed - 1]).Split(Convert.ToChar(";")).ElementAt(1));    //
+                        if (keyPressed <= Categories.Count())
+                        {
+                            MoveFile((string)H_FILE_LIST.Items[H_FILE_LIST.SelectedIndex], Convert.ToString(Categories[keyPressed - 1].Split(Convert.ToChar(";")).ElementAt(1)));
+                        }
+                }
+            }
+        }
 
         public void LoadCategories()
         {
             Categories.Clear();
             ToolStrip1.Items.Clear();
+            int i = 0;
             foreach (DirectoryInfo x in FileSystem.GetDirectoryInfo(BasePath).GetDirectories())
             {
                 //NAME;FULL_PATH
                 Categories.Add(x.Name + ";" + x.FullName);
-                ToolStrip1.Items.Add(new_ite(x.Name, x.FullName));
+                ToolStrip1.Items.Add(new_ite(x.Name, x.FullName, ++i)); //Convert.ToString(++i) +". " + 
                 //ToolStripLabel1
             }
             AppendCategoiesIntoComboBox();
         }
 
-        public ToolStripButton new_ite(string name, string fullname)
+        public ToolStripButton new_ite(string name, string fullname, int counter)
         {
-            ToolStripButton d = new ToolStripButton(name);
+            ToolStripButton d = new ToolStripButton(Convert.ToString(counter) + ". " + name);
             d.Tag = fullname;
             return d;
         }
@@ -55,6 +78,7 @@ namespace Picture_Sorter
             {
                 H_CAT_COMBO.Items.Add(Convert.ToString(x.Split(Convert.ToChar(";")).ElementAt(0)));
             }
+           
         }
 
         public string GetCategorieFullpath(string CatName)
@@ -312,7 +336,7 @@ namespace Picture_Sorter
         {
             if (H_CAT_NAME_TEXTBOX.Text.Length > 0)
             {
-                string path = Path.Combine(BasePath, H_CAT_NAME_TEXTBOX.Text);
+                string path = Path.Combine(BasePath, H_CAT_NAME_TEXTBOX.Text);      //  .Substring(3)
                 if (FileSystem.DirectoryExists(path))
                 {
                     MessageBox.Show("Category already exist");
@@ -322,6 +346,7 @@ namespace Picture_Sorter
                     FileSystem.CreateDirectory(path);
                     H_CAT_NAME_TEXTBOX.Text = "";
                     LoadCategories();
+                    this.ActiveControl = ToolStrip1;
                 }
             }
             else 
@@ -332,7 +357,11 @@ namespace Picture_Sorter
 
         private void ToolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            MoveFile((string)H_FILE_LIST.Items[H_FILE_LIST.SelectedIndex], GetCategorieFullpath(e.ClickedItem.Text));
+            MoveFile((string)H_FILE_LIST.Items[H_FILE_LIST.SelectedIndex], GetCategorieFullpath(e.ClickedItem.Text.Substring(3)));
+        }
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            MessageBox.Show(e.KeyChar.ToString());
         }
 
         private void H_IMAGE_Click(object sender, EventArgs e)
@@ -435,6 +464,21 @@ namespace Picture_Sorter
         {
             ColorSorter i = new ColorSorter();
             i.Show();
+        }
+
+        private void H_FILE_NAME_LABEL_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void H_CAT_NAME_TEXTBOX_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

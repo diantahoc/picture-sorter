@@ -6,7 +6,7 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
+        
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -72,23 +72,27 @@
             // 
             // H_IMAGE
             // 
-            this.H_IMAGE.Location = new System.Drawing.Point(16, 21);
+            this.H_IMAGE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.H_IMAGE.Location = new System.Drawing.Point(6, 21);
             this.H_IMAGE.Name = "H_IMAGE";
-            this.H_IMAGE.Size = new System.Drawing.Size(712, 530);
+            this.H_IMAGE.Size = new System.Drawing.Size(1100, 698);
             this.H_IMAGE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.H_IMAGE.TabIndex = 1;
             this.H_IMAGE.TabStop = false;
             this.H_IMAGE.WaitOnLoad = true;
-            this.H_IMAGE.MouseLeave += new System.EventHandler(this.H_IMAGE_MouseLeave);
-            this.H_IMAGE.Click += new System.EventHandler(this.H_IMAGE_Click);
             this.H_IMAGE.LoadProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.H_IMAGE_LoadProgressChanged);
+            this.H_IMAGE.Click += new System.EventHandler(this.H_IMAGE_Click);
             this.H_IMAGE.MouseEnter += new System.EventHandler(this.H_IMAGE_MouseEnter);
+            this.H_IMAGE.MouseLeave += new System.EventHandler(this.H_IMAGE_MouseLeave);
             // 
             // Button9
             // 
-            this.Button9.Location = new System.Drawing.Point(507, 12);
+            this.Button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Button9.Location = new System.Drawing.Point(906, 16);
             this.Button9.Name = "Button9";
-            this.Button9.Size = new System.Drawing.Size(52, 25);
+            this.Button9.Size = new System.Drawing.Size(52, 23);
             this.Button9.TabIndex = 4;
             this.Button9.Text = "Filter";
             this.Button9.UseVisualStyleBackColor = true;
@@ -96,21 +100,24 @@
             // 
             // GroupBox3
             // 
+            this.GroupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.GroupBox3.Controls.Add(this.Button9);
             this.GroupBox3.Controls.Add(this.H_FT_INPUT);
             this.GroupBox3.Controls.Add(this.Button7);
             this.GroupBox3.Controls.Add(this.TextBox1);
-            this.GroupBox3.Location = new System.Drawing.Point(223, 13);
+            this.GroupBox3.Location = new System.Drawing.Point(215, 13);
             this.GroupBox3.Name = "GroupBox3";
-            this.GroupBox3.Size = new System.Drawing.Size(713, 44);
+            this.GroupBox3.Size = new System.Drawing.Size(1112, 44);
             this.GroupBox3.TabIndex = 16;
             this.GroupBox3.TabStop = false;
             this.GroupBox3.Text = "Base path";
             // 
             // H_FT_INPUT
             // 
+            this.H_FT_INPUT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.H_FT_INPUT.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Picture_Sorter.Properties.Settings.Default, "ft", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.H_FT_INPUT.Location = new System.Drawing.Point(565, 14);
+            this.H_FT_INPUT.Location = new System.Drawing.Point(964, 16);
             this.H_FT_INPUT.Name = "H_FT_INPUT";
             this.H_FT_INPUT.Size = new System.Drawing.Size(142, 22);
             this.H_FT_INPUT.TabIndex = 3;
@@ -118,9 +125,10 @@
             // 
             // Button7
             // 
-            this.Button7.Location = new System.Drawing.Point(432, 14);
+            this.Button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Button7.Location = new System.Drawing.Point(875, 16);
             this.Button7.Name = "Button7";
-            this.Button7.Size = new System.Drawing.Size(25, 25);
+            this.Button7.Size = new System.Drawing.Size(25, 23);
             this.Button7.TabIndex = 1;
             this.Button7.Text = "....";
             this.Button7.UseVisualStyleBackColor = true;
@@ -128,25 +136,31 @@
             // 
             // TextBox1
             // 
+            this.TextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBox1.Location = new System.Drawing.Point(6, 16);
             this.TextBox1.Name = "TextBox1";
-            this.TextBox1.Size = new System.Drawing.Size(420, 22);
+            this.TextBox1.Size = new System.Drawing.Size(863, 22);
             this.TextBox1.TabIndex = 0;
             // 
             // H_FILE_NAME_LABEL
             // 
+            this.H_FILE_NAME_LABEL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.H_FILE_NAME_LABEL.AutoSize = true;
-            this.H_FILE_NAME_LABEL.Location = new System.Drawing.Point(6, 554);
+            this.H_FILE_NAME_LABEL.Location = new System.Drawing.Point(221, 785);
             this.H_FILE_NAME_LABEL.Name = "H_FILE_NAME_LABEL";
             this.H_FILE_NAME_LABEL.Size = new System.Drawing.Size(43, 14);
             this.H_FILE_NAME_LABEL.TabIndex = 0;
             this.H_FILE_NAME_LABEL.Text = "Label1";
+            this.H_FILE_NAME_LABEL.Click += new System.EventHandler(this.H_FILE_NAME_LABEL_Click);
             // 
             // Button14
             // 
-            this.Button14.Location = new System.Drawing.Point(762, 45);
+            this.Button14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Button14.Location = new System.Drawing.Point(959, 71);
             this.Button14.Name = "Button14";
-            this.Button14.Size = new System.Drawing.Size(75, 25);
+            this.Button14.Size = new System.Drawing.Size(81, 25);
             this.Button14.TabIndex = 14;
             this.Button14.Text = "To JPG";
             this.Button14.UseVisualStyleBackColor = true;
@@ -154,17 +168,21 @@
             // 
             // H_FILE_LIST
             // 
+            this.H_FILE_LIST.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.H_FILE_LIST.FormattingEnabled = true;
             this.H_FILE_LIST.ItemHeight = 14;
-            this.H_FILE_LIST.Location = new System.Drawing.Point(11, 84);
+            this.H_FILE_LIST.Location = new System.Drawing.Point(12, 87);
             this.H_FILE_LIST.Name = "H_FILE_LIST";
-            this.H_FILE_LIST.Size = new System.Drawing.Size(185, 536);
+            this.H_FILE_LIST.Size = new System.Drawing.Size(185, 704);
             this.H_FILE_LIST.TabIndex = 15;
             this.H_FILE_LIST.SelectedIndexChanged += new System.EventHandler(this.H_FILE_LIST_SelectedIndexChanged);
             // 
             // Button12
             // 
-            this.Button12.Location = new System.Drawing.Point(756, 14);
+            this.Button12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Button12.Location = new System.Drawing.Point(959, 39);
             this.Button12.Name = "Button12";
             this.Button12.Size = new System.Drawing.Size(48, 25);
             this.Button12.TabIndex = 13;
@@ -174,9 +192,9 @@
             // 
             // Button11
             // 
-            this.Button11.Location = new System.Drawing.Point(166, 56);
+            this.Button11.Location = new System.Drawing.Point(173, 55);
             this.Button11.Name = "Button11";
-            this.Button11.Size = new System.Drawing.Size(22, 25);
+            this.Button11.Size = new System.Drawing.Size(24, 19);
             this.Button11.TabIndex = 12;
             this.Button11.Text = ".";
             this.Button11.UseVisualStyleBackColor = true;
@@ -185,7 +203,7 @@
             // CheckBox1
             // 
             this.CheckBox1.AutoSize = true;
-            this.CheckBox1.Location = new System.Drawing.Point(12, 56);
+            this.CheckBox1.Location = new System.Drawing.Point(18, 55);
             this.CheckBox1.Name = "CheckBox1";
             this.CheckBox1.Size = new System.Drawing.Size(133, 18);
             this.CheckBox1.TabIndex = 13;
@@ -194,8 +212,9 @@
             // 
             // H_FILE_CONUT
             // 
+            this.H_FILE_CONUT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.H_FILE_CONUT.AutoSize = true;
-            this.H_FILE_CONUT.Location = new System.Drawing.Point(9, 623);
+            this.H_FILE_CONUT.Location = new System.Drawing.Point(15, 785);
             this.H_FILE_CONUT.Name = "H_FILE_CONUT";
             this.H_FILE_CONUT.Size = new System.Drawing.Size(43, 14);
             this.H_FILE_CONUT.TabIndex = 10;
@@ -203,7 +222,9 @@
             // 
             // Button13
             // 
-            this.Button13.Location = new System.Drawing.Point(843, 45);
+            this.Button13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Button13.Location = new System.Drawing.Point(1046, 71);
             this.Button13.Name = "Button13";
             this.Button13.Size = new System.Drawing.Size(75, 25);
             this.Button13.TabIndex = 14;
@@ -213,7 +234,9 @@
             // 
             // Button10
             // 
-            this.Button10.Location = new System.Drawing.Point(810, 14);
+            this.Button10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Button10.Location = new System.Drawing.Point(1013, 39);
             this.Button10.Name = "Button10";
             this.Button10.Size = new System.Drawing.Size(108, 25);
             this.Button10.TabIndex = 12;
@@ -223,39 +246,46 @@
             // 
             // Panel1
             // 
+            this.Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Panel1.Controls.Add(this.ToolStrip1);
-            this.Panel1.Location = new System.Drawing.Point(283, 14);
+            this.Panel1.Location = new System.Drawing.Point(476, 15);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(444, 155);
+            this.Panel1.Size = new System.Drawing.Size(477, 84);
             this.Panel1.TabIndex = 11;
+            this.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
             // ToolStrip1
             // 
             this.ToolStrip1.AllowItemReorder = true;
-            this.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ToolStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.ToolStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.ToolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.ToolStrip1.Location = new System.Drawing.Point(0, 0);
             this.ToolStrip1.Name = "ToolStrip1";
             this.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.ToolStrip1.Size = new System.Drawing.Size(444, 155);
+            this.ToolStrip1.Size = new System.Drawing.Size(1, 0);
             this.ToolStrip1.TabIndex = 10;
             this.ToolStrip1.Text = "ToolStrip1";
             this.ToolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ToolStrip1_ItemClicked);
             // 
             // ProgressBar1
             // 
-            this.ProgressBar1.Location = new System.Drawing.Point(620, 558);
+            this.ProgressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ProgressBar1.Location = new System.Drawing.Point(1018, 719);
             this.ProgressBar1.Name = "ProgressBar1";
-            this.ProgressBar1.Size = new System.Drawing.Size(100, 11);
+            this.ProgressBar1.Size = new System.Drawing.Size(88, 14);
             this.ProgressBar1.TabIndex = 2;
             // 
             // Button8
             // 
-            this.Button8.Location = new System.Drawing.Point(821, 145);
+            this.Button8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Button8.Location = new System.Drawing.Point(1127, 47);
             this.Button8.Name = "Button8";
-            this.Button8.Size = new System.Drawing.Size(97, 25);
+            this.Button8.Size = new System.Drawing.Size(182, 25);
             this.Button8.TabIndex = 9;
             this.Button8.Text = "Delete this file";
             this.Button8.UseVisualStyleBackColor = true;
@@ -263,21 +293,26 @@
             // 
             // GroupBox2
             // 
+            this.GroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.GroupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.GroupBox2.Controls.Add(this.ProgressBar1);
             this.GroupBox2.Controls.Add(this.H_IMAGE);
-            this.GroupBox2.Controls.Add(this.H_FILE_NAME_LABEL);
-            this.GroupBox2.Location = new System.Drawing.Point(202, 56);
+            this.GroupBox2.Location = new System.Drawing.Point(215, 63);
             this.GroupBox2.Name = "GroupBox2";
-            this.GroupBox2.Size = new System.Drawing.Size(734, 581);
+            this.GroupBox2.Size = new System.Drawing.Size(1112, 733);
             this.GroupBox2.TabIndex = 14;
             this.GroupBox2.TabStop = false;
             this.GroupBox2.Text = "File";
             // 
             // Button3
             // 
-            this.Button3.Location = new System.Drawing.Point(791, 101);
+            this.Button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Button3.Location = new System.Drawing.Point(1127, 16);
             this.Button3.Name = "Button3";
-            this.Button3.Size = new System.Drawing.Size(59, 25);
+            this.Button3.Size = new System.Drawing.Size(88, 25);
             this.Button3.TabIndex = 2;
             this.Button3.Text = "<< Previous";
             this.Button3.UseVisualStyleBackColor = true;
@@ -285,9 +320,11 @@
             // 
             // Button4
             // 
-            this.Button4.Location = new System.Drawing.Point(856, 101);
+            this.Button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Button4.Location = new System.Drawing.Point(1221, 16);
             this.Button4.Name = "Button4";
-            this.Button4.Size = new System.Drawing.Size(62, 25);
+            this.Button4.Size = new System.Drawing.Size(88, 25);
             this.Button4.TabIndex = 3;
             this.Button4.Text = "Next >>";
             this.Button4.UseVisualStyleBackColor = true;
@@ -295,6 +332,8 @@
             // 
             // GroupBox1
             // 
+            this.GroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.GroupBox1.Controls.Add(this.Button8);
             this.GroupBox1.Controls.Add(this.button15);
             this.GroupBox1.Controls.Add(this.CheckBox3);
@@ -310,18 +349,18 @@
             this.GroupBox1.Controls.Add(this.Button5);
             this.GroupBox1.Controls.Add(this.Button3);
             this.GroupBox1.Controls.Add(this.Button4);
-            this.GroupBox1.Location = new System.Drawing.Point(12, 644);
+            this.GroupBox1.Location = new System.Drawing.Point(12, 802);
             this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Size = new System.Drawing.Size(924, 175);
+            this.GroupBox1.Size = new System.Drawing.Size(1315, 105);
             this.GroupBox1.TabIndex = 11;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Actions";
             // 
             // button15
             // 
-            this.button15.Location = new System.Drawing.Point(21, 146);
+            this.button15.Location = new System.Drawing.Point(272, 30);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(155, 23);
+            this.button15.Size = new System.Drawing.Size(59, 47);
             this.button15.TabIndex = 17;
             this.button15.Text = "Sort images by color...";
             this.button15.UseVisualStyleBackColor = true;
@@ -329,11 +368,13 @@
             // 
             // CheckBox3
             // 
+            this.CheckBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CheckBox3.AutoSize = true;
             this.CheckBox3.Checked = global::Picture_Sorter.Properties.Settings.Default.sendTobin;
             this.CheckBox3.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CheckBox3.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Picture_Sorter.Properties.Settings.Default, "sendTobin", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.CheckBox3.Location = new System.Drawing.Point(733, 132);
+            this.CheckBox3.Location = new System.Drawing.Point(1127, 78);
             this.CheckBox3.Name = "CheckBox3";
             this.CheckBox3.Size = new System.Drawing.Size(128, 18);
             this.CheckBox3.TabIndex = 16;
@@ -342,10 +383,12 @@
             // 
             // CheckBox2
             // 
+            this.CheckBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CheckBox2.AutoSize = true;
             this.CheckBox2.Checked = global::Picture_Sorter.Properties.Settings.Default.backupBeforeConvert;
             this.CheckBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Picture_Sorter.Properties.Settings.Default, "backupBeforeConvert", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.CheckBox2.Location = new System.Drawing.Point(756, 77);
+            this.CheckBox2.Location = new System.Drawing.Point(959, 15);
             this.CheckBox2.Name = "CheckBox2";
             this.CheckBox2.Size = new System.Drawing.Size(162, 18);
             this.CheckBox2.TabIndex = 15;
@@ -355,14 +398,15 @@
             // 
             // H_CAT_NAME_TEXTBOX
             // 
-            this.H_CAT_NAME_TEXTBOX.Location = new System.Drawing.Point(154, 83);
+            this.H_CAT_NAME_TEXTBOX.Location = new System.Drawing.Point(337, 61);
             this.H_CAT_NAME_TEXTBOX.Name = "H_CAT_NAME_TEXTBOX";
             this.H_CAT_NAME_TEXTBOX.Size = new System.Drawing.Size(123, 22);
             this.H_CAT_NAME_TEXTBOX.TabIndex = 8;
+            this.H_CAT_NAME_TEXTBOX.TextChanged += new System.EventHandler(this.H_CAT_NAME_TEXTBOX_TextChanged);
             // 
             // Button6
             // 
-            this.Button6.Location = new System.Drawing.Point(154, 113);
+            this.Button6.Location = new System.Drawing.Point(337, 30);
             this.Button6.Name = "Button6";
             this.Button6.Size = new System.Drawing.Size(123, 25);
             this.Button6.TabIndex = 7;
@@ -375,16 +419,16 @@
             this.H_CAT_COMBO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.H_CAT_COMBO.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.H_CAT_COMBO.FormattingEnabled = true;
-            this.H_CAT_COMBO.Location = new System.Drawing.Point(21, 25);
+            this.H_CAT_COMBO.Location = new System.Drawing.Point(6, 30);
             this.H_CAT_COMBO.Name = "H_CAT_COMBO";
-            this.H_CAT_COMBO.Size = new System.Drawing.Size(256, 48);
+            this.H_CAT_COMBO.Size = new System.Drawing.Size(127, 48);
             this.H_CAT_COMBO.TabIndex = 1;
             // 
             // Button5
             // 
-            this.Button5.Location = new System.Drawing.Point(21, 84);
+            this.Button5.Location = new System.Drawing.Point(139, 30);
             this.Button5.Name = "Button5";
-            this.Button5.Size = new System.Drawing.Size(127, 58);
+            this.Button5.Size = new System.Drawing.Size(127, 47);
             this.Button5.TabIndex = 0;
             this.Button5.Text = "Move To Selected";
             this.Button5.UseVisualStyleBackColor = true;
@@ -392,9 +436,9 @@
             // 
             // Button2
             // 
-            this.Button2.Location = new System.Drawing.Point(141, 13);
+            this.Button2.Location = new System.Drawing.Point(114, 13);
             this.Button2.Name = "Button2";
-            this.Button2.Size = new System.Drawing.Size(75, 36);
+            this.Button2.Size = new System.Drawing.Size(83, 36);
             this.Button2.TabIndex = 9;
             this.Button2.Text = "Refresh File List";
             this.Button2.UseVisualStyleBackColor = true;
@@ -404,7 +448,7 @@
             // 
             this.Button1.Location = new System.Drawing.Point(12, 13);
             this.Button1.Name = "Button1";
-            this.Button1.Size = new System.Drawing.Size(123, 36);
+            this.Button1.Size = new System.Drawing.Size(96, 36);
             this.Button1.TabIndex = 8;
             this.Button1.Text = "Refresh Categories";
             this.Button1.UseVisualStyleBackColor = true;
@@ -414,16 +458,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(946, 831);
+            this.ClientSize = new System.Drawing.Size(1339, 919);
+            this.Controls.Add(this.H_FILE_CONUT);
             this.Controls.Add(this.GroupBox3);
+            this.Controls.Add(this.H_FILE_NAME_LABEL);
             this.Controls.Add(this.H_FILE_LIST);
             this.Controls.Add(this.Button11);
             this.Controls.Add(this.CheckBox1);
-            this.Controls.Add(this.H_FILE_CONUT);
             this.Controls.Add(this.GroupBox2);
-            this.Controls.Add(this.GroupBox1);
             this.Controls.Add(this.Button2);
             this.Controls.Add(this.Button1);
+            this.Controls.Add(this.GroupBox1);
             this.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -431,6 +476,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Picture Sorter";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.H_IMAGE)).EndInit();
             this.GroupBox3.ResumeLayout(false);
@@ -438,7 +484,6 @@
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();
             this.GroupBox2.ResumeLayout(false);
-            this.GroupBox2.PerformLayout();
             this.GroupBox1.ResumeLayout(false);
             this.GroupBox1.PerformLayout();
             this.ResumeLayout(false);
